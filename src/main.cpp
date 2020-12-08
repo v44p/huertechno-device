@@ -10,8 +10,8 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 int TIME_DELAY=500;
-const char *ssid = "XXXXXXX";
-const char *password = "XXXXXXX";
+const char *ssid = "";
+const char *password = "";
 
 WebThingAdapter* adapter = NULL;
 
@@ -99,8 +99,12 @@ void loop() {
     dht22hLevel.setValue(levelDht22h);
     lastValueDht22h = h;
     
-    Serial.print("log: Value dht22t: ");
+    Serial.print("log: Value dht22h: ");
     Serial.print(h);
+    Serial.println("%");
+
+    Serial.print("log: Value dht22t: ");
+    Serial.print(t);
     Serial.println("%");
 
     adapter->update();
